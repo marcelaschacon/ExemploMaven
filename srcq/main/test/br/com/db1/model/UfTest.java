@@ -4,16 +4,19 @@ import javax.persistence.Query;
 
 import org.junit.Test;
 
+import br.com.db1.dao.Transactional;
+
 public class UfTest extends AbstractTest{
 	
 	@Test
+	@Transactional
 	public void inserirTest() {
 		Uf uf = new Uf();
 		uf.setNome("RR");
 		
-		manager.getTransaction().begin();
+		
 		manager.persist(uf);
-		manager.getTransaction().commit();
+		
 	}
 	
 	@Test
