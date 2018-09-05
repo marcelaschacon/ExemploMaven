@@ -11,23 +11,23 @@ public class CidadeTeste extends AbstractTest{
 	@Test
 	public void updateTest(){
 		Query q = manager.createQuery("from uf where nome = :pNome");
-		q.setParameter("pNome", "PR");
+		q.setParameter("pNome", "RR");
 		q.setMaxResults(1);
 		Uf uf = (Uf) q.getSingleResult();
 				
 		Cidade cidade = new Cidade();
-		cidade.setNome('RR')
+		cidade.setNome("Curitiba");
 		cidade.setUf(uf);
 		
 		manager.getTransaction().begin();
-		manager.persist(uf);
+		manager.persist(cidade);
 		manager.getTransaction().commit();
 	}
 	
 	@Test
 	public void selectTest(){
 		Query q = manager.createQuery("from cidade");
-		List<Cidade> cidades = q.GetResultList();
+		List<Cidade> cidades = q.getResultList();
 		
 		for(Cidade cidade:cidades){
 			System.out.println(cidade);

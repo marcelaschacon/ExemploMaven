@@ -19,13 +19,13 @@ public class UfTest extends AbstractTest{
 	@Test
 	public void updateTest(){
 		Query q = manager.createQuery("from uf where nome = :pNome");
-		q.setParameter("pNome", "PR");
+		q.setParameter("pNome", "RR");
 		q.setMaxResults(1);
 		Uf uf = (Uf) q.getSingleResult();
 				
 		System.out.println(uf);
 		
-		uf.setNome("TT");
+		uf.setNome("PR");
 		manager.getTransaction().begin();
 		manager.persist(uf);
 		manager.getTransaction().commit();
